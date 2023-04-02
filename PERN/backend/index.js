@@ -1,27 +1,19 @@
-const express = require('express');
-const dotenv = require('dotenv');
-dotenv.config();
+const express = require('express')
+const bodyParser = require('body-parser')
 
-const userRouter = require('./routers/userRouter');
-const cors = require('cors');
-const { PORT } = require('./config');
-
-const app = express();
-
-
-app.use(express.json());
-// app.use(express.urlencoded({extended : true}));
-app.use('/user', userRouter);
-app.use(cors(
-    {
-        origin : 'http://localhost:3000',
-        credentials : true
-    }
-));
-
-app.get('/', (req, res) => {
-    console.log('Request at index');
-    res.status(299).send('Working Perfectly!!');
+const app = express()
+const port = 3000
+app.use(bodyParser.json())
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+)
+app.get('/', (request, response) => {
+    response.json({
+        info: 'Node.js, Express, and Postgres API'
+    })
 })
-
-app.listen(PORT, () => console.log(`Express server has started at ${PORT}`));
+app.listen(port, () => {
+    console.log(`App running on port ${port}.`)
+})
