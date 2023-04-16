@@ -1,6 +1,6 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-    user: 'root',
+    user: 'postgres',
     host: 'localhost',
     database: 'user_db',
     password: 'root',
@@ -35,3 +35,5 @@ const createUser = (request, response) => {
         response.status(201).send(`User added with ID: ${result.insertId}`)
     })
 }
+
+getUsers();
