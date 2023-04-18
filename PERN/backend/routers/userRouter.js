@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const Model = require("../models/userModel");
+const {getUsers, addUser}=require("../queries");
 
 router.get("/", (req, res) => {
   console.log("Request at user index");
@@ -9,16 +10,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
-  new Model(req.body)
-    .save()
-    .then((result) => {
-      console.log("User Data Saved");
-      res.status(201).json({ status: "success", result });
-    })
-    .catch((err) => {
-      console.error("Error saving user data", err);
-      res.status(500).send("Error saving user data");
-    });
+        getUsers(req,res)
+
 });
 
 router.post("/auth", (req, res) => {
