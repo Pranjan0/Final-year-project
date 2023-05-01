@@ -17,6 +17,8 @@ import AdminAuth from "./auth/AdminAuth";
 import UserProvider from "./context/UserProvider";
 import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
+import AddProduct from "./components/user/AddProduct";
+import ProductListing from "./components/main/ProductListing";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -48,6 +50,8 @@ function App() {
               <Route element={<Home />} path="home" />
               <Route element={<Signin />} path="signin" />
               <Route element={<Signup />} path="signup" />
+              <Route element={<ProductListing />} path="productlisting" />
+
             </Route>
             <Route element={<Products />} path="products">
               <Route element={<Product />} path="product" />
@@ -64,6 +68,7 @@ function App() {
               path="user"
             >
               <Route path="profile" element={<UserProfile />} />
+              <Route path="addproduct" element={<AddProduct />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
