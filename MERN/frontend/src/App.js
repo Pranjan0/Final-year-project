@@ -19,7 +19,8 @@ import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
 import AddProduct from "./components/user/AddProduct";
 import ProductListing from "./components/main/ProductListing";
-import Dashboard from "./components/user/Dashboard";
+import DatabaseComparison from "./components/dashboard/DatabaseComparision";
+import Dashboard from "./components/dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -46,20 +47,21 @@ function App() {
             >
               <Route element={<AdminProfile />} path="profile" />
             </Route>
+            <Route element={<Dashboard />} path="dashboard">
+              <Route element={<DatabaseComparison />} path="dbcomparison" />
+            </Route>
 
             <Route element={<Main />} path="main">
               <Route element={<Home />} path="home" />
               <Route element={<Signin />} path="signin" />
               <Route element={<Signup />} path="signup" />
               <Route element={<ProductListing />} path="productlisting" />
-
             </Route>
             <Route element={<Products />} path="products">
-              <Route element={<Product />} path="addproduct" />
+              <Route element={<AddProduct />} path="addproduct" />
               <Route element={<Rating />} path="rating" />
-              
             </Route>
-           
+
             <Route
               element={
                 // <UserAuth>
@@ -70,7 +72,6 @@ function App() {
             >
               <Route path="profile" element={<UserProfile />} />
               <Route path="addproduct" element={<AddProduct />} />
-              <Route path="dashboard" element={<Dashboard />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

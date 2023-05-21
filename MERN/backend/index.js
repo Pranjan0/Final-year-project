@@ -4,6 +4,7 @@ dotenv.config();
 
 const userRouter = require("./routers/userRouter");
 const productRouter = require("./routers/productRouter");
+const operationRouter = require("./routers/operationRouter");
 const cors = require("cors");
 const { PORT } = require("./config");
 
@@ -20,6 +21,7 @@ app.use(
 
 app.use("/user", userRouter);
 app.use("/product", productRouter);
+app.use("/op", operationRouter);
 app.get("/", (req, res) => {
   console.log("Request at index");
   res.status(299).send("Working Perfectly!!");
