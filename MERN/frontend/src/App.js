@@ -19,6 +19,7 @@ import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
 import AddProduct from "./components/user/AddProduct";
 import ProductListing from "./components/main/ProductListing";
+import Dashboard from "./components/user/Dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -54,7 +55,7 @@ function App() {
 
             </Route>
             <Route element={<Products />} path="products">
-              <Route element={<Product />} path="product" />
+              <Route element={<Product />} path="addproduct" />
               <Route element={<Rating />} path="rating" />
               
             </Route>
@@ -69,6 +70,7 @@ function App() {
             >
               <Route path="profile" element={<UserProfile />} />
               <Route path="addproduct" element={<AddProduct />} />
+              <Route path="dashboard" element={<Dashboard />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
