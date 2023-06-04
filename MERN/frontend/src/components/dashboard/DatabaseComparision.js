@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import app_config from "../../config";
 
 const DatabaseComparison = () => {
+  
   const { apiurl } = app_config;
   const [operationList, setOperationList] = useState([]);
 
@@ -31,8 +32,11 @@ const DatabaseComparison = () => {
   };
 
   return (
-    <div>
-      <div className="container">
+    <div
+    style={{
+      backgroundImage: `url('http://getwallpapers.com/wallpaper/full/5/f/f/1080818-light-blue-backgrounds-2560x1600-mobile.jpg')`}}
+      >
+        <div className="container">
         <h1>Database Comparison</h1>
         <table className="table">
           <thead>
@@ -49,6 +53,7 @@ const DatabaseComparison = () => {
       </div>
     </div>
   );
+  
 };
 
 export default DatabaseComparison;

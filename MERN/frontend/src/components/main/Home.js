@@ -50,7 +50,7 @@ const HomePage = () => {
           <a
             className="btn  btn-link btn-lg py-3 px-5 mb-md-4 ripple-surface-primary"
             data-ripple-color="primary"
-            href="#"
+            href="/dashboard/dbcomparison"
             role="button"
             aria-controls="#picker-editor"
             draggable="false"
